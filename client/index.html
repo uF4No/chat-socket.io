@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
+  <!-- this works locally -->
+  <!-- <script src="/socket.io/socket.io.js"></script> -->
+
+  <!-- Loads socket.io client from CDN -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
+
+  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="style.css">
+
+
+  <title>Chat Socket.io Demo</title>
+</head>
+<body>
+  <div id="app">
+    <h1>Chat demo</h1>
+    <div id="chat-container">
+
+    </div>
+    <form id="messageForm">
+      <input type="text" id="messageInput" size=100><button type="submit" id="sendBtn">Send!</button>
+    </form>
+  </div>
+
+
+</body>
+</html>

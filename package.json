@@ -1,0 +1,19 @@
+{
+  "name": "chatsocket.io",
+  "version": "1.0.0",
+  "description": "A chat that uses socket.io",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [
+    "chat",
+    "socket.io"
+  ],
+  "author": "A.Ufano",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "socket.io": "^2.3.0"
+  }
+}

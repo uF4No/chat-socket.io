@@ -1,0 +1,48 @@
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+#app{
+  width: 80vw;
+  
+  margin: 0 auto;
+}
+
+#chat-container{
+  height: 80vh;
+  margin: auto auto;
+}
+
+#message-form{
+  position: absolute;
+  
+  bottom: 10px;
+}
+
+#message-input{
+  margin: auto;
+}
+
+.message{
+  background-color: blueviolet;
+  color:white;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius:5px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+.my-message{
+  background-color: #ccffcc;
+  text-align: right;
+  border-radius:5px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
+.others-message{
+  background-color: aqua;
+  text-align: left;
+  border-radius:5px;
+  padding: 0.5rem;
+  margin-top: 1rem;
+}
