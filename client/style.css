@@ -53,6 +53,10 @@ body{
   border-color: #9de3ff;
 }
 
+.error{
+  border-color: #fa7962 !important;
+}
+
 .message{
   background-color: rgb(223, 174, 230);
   color: #333;

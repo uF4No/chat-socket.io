@@ -11,22 +11,30 @@ socket.emit('new-connection', {username: name})
 // Adds event listener to button to send messages
 const messageInput = document.getElementById('messageInput')
 const messageForm = document.getElementById('messageForm')
-// const sendBtn = document.getElementById('sendBtn')
+
+// removes error class from input
+messageInput.addEventListener('keyup', (e) => {
+  messageInput.classList.remove('error')
+})
 
 messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
-  let newMessage = messageInput.value
-  //sends message and our id to socket server
-  socket.emit('new-message', {user: socket.id, message: newMessage})
-  addMessage({message: newMessage}, 'my' )
-  //resets input
-  messageInput.value = ''
+  // check if there is a message in the input
+  if(messageInput.value !== ''){
+    let newMessage = messageInput.value
+    //sends message and our id to socket server
+    socket.emit('new-message', {user: socket.id, message: newMessage})
+    addMessage({message: newMessage}, 'my' )
+    //resets input
+    messageInput.value = ''
+  }else{
+    messageInput.classList.add('error')
+  }
 })
 
 socket.on('welcome', function (data) {
   console.log(data);
   addMessage(data, 'server')
-  // socket.emit('my other event', { my: 'data' });
 });
 
 socket.on('broadcast-message', (data) => {
@@ -50,7 +58,6 @@ function addMessage(data, type = false){
     messageElement.innerText = `${data.user} : ${data.message}`
 
   }else{
-    messageElement.classList.add('message')
     messageElement.innerText = `${data.message}`
 
   }
