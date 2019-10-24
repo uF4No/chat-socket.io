@@ -9,8 +9,13 @@ body{
 }
 
 #chat-container{
-  height: 80vh;
+  height: 75vh;
   margin: auto auto;
+  border: 1px solid #e095fd;
+  border-radius: 10px;
+  margin: 1rem 1rem;
+  padding: 0.5rem;
+
 }
 
 #message-form{
@@ -19,14 +24,40 @@ body{
   bottom: 10px;
 }
 
+.center{
+  margin: auto;
+  text-align: center;
+}
+
 #message-input{
   margin: auto;
 }
 
+.btn{
+  padding: 0.5rem;
+  background-color: #5fcefa;
+  border: 1px solid #06b8ff;
+  border-radius: 5px;
+  color:#fff;
+  font-weight: 600;
+}
+
+.input{
+  padding: 0.5rem;
+  margin:0 0.5rem;
+  border: 1px solid #c2c2c2;
+  border-radius: 2px;
+}
+
+.input:active, .input:focus{
+  border-color: #9de3ff;
+}
+
 .message{
-  background-color: blueviolet;
-  color:white;
-  font-size: 1.5rem;
+  background-color: rgb(223, 174, 230);
+  color: #333;
+
+  font-size: 1.2rem;
   text-align: center;
   border-radius:5px;
   padding: 0.5rem;
@@ -35,14 +66,10 @@ body{
 .my-message{
   background-color: #ccffcc;
   text-align: right;
-  border-radius:5px;
-  padding: 0.5rem;
-  margin-top: 1rem;
+  
 }
 .others-message{
   background-color: aqua;
   text-align: left;
-  border-radius:5px;
-  padding: 0.5rem;
-  margin-top: 1rem;
+  
 }

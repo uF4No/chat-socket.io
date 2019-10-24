@@ -39,6 +39,8 @@ socket.on('broadcast-message', (data) => {
 // so we can style them differently
 function addMessage(data, type = false){
   const messageElement = document.createElement('div')
+  messageElement.classList.add('message')
+
   if(type === 'my'){
     messageElement.classList.add('my-message')
     messageElement.innerText = `${data.message}`
