@@ -55,7 +55,7 @@ function addMessage(data, type = false){
 
   }else if(type === 'others'){
     messageElement.classList.add('others-message')
-    messageElement.innerText = `${data.user} : ${data.message}`
+    messageElement.innerText = `${data.user}: ${data.message}`
 
   }else{
     messageElement.innerText = `${data.message}`
