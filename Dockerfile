@@ -1,9 +1,12 @@
 # use Node slim base image
 FROM node:10.13-slim
 WORKDIR /app
+# copy client files
 COPY client ./client/
+# copy server files
 COPY package*.json  server.js ./
+# install dependencies
 RUN npm install
-# COPY . .
+# expose port and start server
 EXPOSE 3000
 CMD npm start
