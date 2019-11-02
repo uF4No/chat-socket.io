@@ -5,15 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   
-  <!-- this works locally -->
+  <!-- Loads socket.io client from server -->
   <!-- <script src="/socket.io/socket.io.js"></script> -->
 
   <!-- Loads socket.io client from CDN -->
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.slim.js"></script>
-
+  
+  <!-- Script to emit/receive events from socket.io server -->
   <script defer src="script.js"></script>
+  
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css">
-
 
   <title>Chat Socket.io Demo</title>
 </head>
@@ -29,7 +31,6 @@
       </form>
     </div>
   </div>
-
 
 </body>
 </html>

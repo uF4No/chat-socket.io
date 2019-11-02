@@ -1,23 +1,23 @@
-const chatContainer = document.getElementById('chat-container')
+/**
+ * Use io (loaded earlier) to connect with the socket instance running in your server. 
+ * IMPORTANT! By default, socket.io() connects to the host that 
+ * served the page, so we dont have to pass the server url
+ */
+var socket = io();
 
-
-// connects with the socket instance running in your server
-var socket = io('http://localhost:3000');
-
+//prompt to ask user's name 
 const name = prompt('Welcome! Please enter your name:')
 
+// emit event to server with the user's name
 socket.emit('new-connection', {username: name})
 
-// Adds event listener to button to send messages
+// get elements of our html page
+const chatContainer = document.getElementById('chat-container')
 const messageInput = document.getElementById('messageInput')
 const messageForm = document.getElementById('messageForm')
 
-// removes error class from input
-messageInput.addEventListener('keyup', (e) => {
-  messageInput.classList.remove('error')
-})
-
 messageForm.addEventListener('submit', (e) => {
+  // avoid submit the form and refresh the page
   e.preventDefault()
   // check if there is a message in the input
   if(messageInput.value !== ''){
@@ -42,6 +42,10 @@ socket.on('broadcast-message', (data) => {
   addMessage(data, 'others')
 })
 
+// removes error class from input
+messageInput.addEventListener('keyup', (e) => {
+  messageInput.classList.remove('error')
+})
 
 // receives two params, the message and if it was sent by you
 // so we can style them differently
@@ -61,5 +65,6 @@ function addMessage(data, type = false){
     messageElement.innerText = `${data.message}`
 
   }
+  // adds the new div to the message container div
   chatContainer.append(messageElement)
 }

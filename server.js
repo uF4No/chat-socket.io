@@ -3,30 +3,9 @@ const app = http.createServer(requestHandler)
 var fs = require('fs');
 var path = require('path');
 
-var io = require('socket.io')(app);
 
 app.listen(3000)
 console.log('HTTP Server running at http://127.0.0.1:3000/');
-
-// we'll store the users in this object as socketId: username
-const users = {}
-
-// starts socket
-io.on('connection', function (socket) {
-  console.log('Socket.io started.....')
-  // Manage all socket.io events
-  socket.on('new-connection', (data) => {
-    console.log(`new-connection event ${data.username}`)
-    // adds user to list
-    users[socket.id] = data.username
-    socket.emit('welcome', { user: data.username, message: `Welcome to this Socket.io chat ${data.username}` });
-  })
-  socket.on('new-message', (data) => {
-    console.log(`new-message event ${data}`);
-    // broadcast message to all sockets except the one that triggered the event
-    socket.broadcast.emit('broadcast-message', {user: users[data.user], message: data.message})
-  });
-});
 
 
 // handles all http requests to the server
@@ -80,5 +59,26 @@ function requestHandler(request, response) {
     });
 
 }
+
+// we'll store the users in this object as socketId: username
+const users = {}
+
+var io = require('socket.io')(app);
+// starts socket
+io.on('connection', function (socket) {
+  console.log('Socket.io started.....')
+  // Manage all socket.io events next...
+  socket.on('new-connection', (data) => {
+    console.log(`new-connection event ${data.username}`)
+    // adds user to list
+    users[socket.id] = data.username
+    socket.emit('welcome', { user: data.username, message: `Welcome to this Socket.io chat ${data.username}` });
+  })
+  socket.on('new-message', (data) => {
+    console.log(`new-message event ${data}`);
+    // broadcast message to all sockets except the one that triggered the event
+    socket.broadcast.emit('broadcast-message', {user: users[data.user], message: data.message})
+  });
+});
 
 
